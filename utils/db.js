@@ -1,4 +1,4 @@
-/*const { MongoClient } = require('mongodb');
+/* const { MongoClient } = require('mongodb');
 
 class DBClient {
   constructor() {
@@ -49,7 +49,7 @@ class DBClient {
 
 const dbClient = new DBClient();
 
-module.exports = dbClient;*/
+module.exports = dbClient; */
 
 const { MongoClient } = require('mongodb');
 
