@@ -1,4 +1,4 @@
-const express = require('express');
+/*const express = require('express');
 const AppController = require('../controllers/AppController');
 const UsersController = require('../controllers/UsersController');
 const AuthController = require('../controllers/AuthController');
@@ -19,4 +19,12 @@ route.put('files/:id/publish', FilesController.putPublish);
 route.put('files/:id/unpublish', FilesController.putUnpublish);
 route.get('/files/:id/data', FilesController.getFile);
 
-module.exports = route;
+module.exports = route;*/
+const express = require('express');
+const router = express.Router();
+const AppController = require('../controllers/AppController');
+
+router.get('/status', AppController.getStatus);
+router.get('/stats', AppController.getStats);
+
+module.exports = router;
