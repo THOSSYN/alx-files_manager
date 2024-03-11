@@ -8,8 +8,8 @@ const FilesController = require('../controllers/FilesController'); */
 
 router.get('/status', AppController.getStatus);
 router.get('/stats', AppController.getStats);
-/* route.post('/users', UsersController.postNew);
-route.get('/connect', AuthController.getConnect);
+route.post('/users', UsersController.postNew);
+/*route.get('/connect', AuthController.getConnect);
 route.get('/disconnect', AuthController.getDisconnect);
 route.get('/users/me', UsersController.getMe);
 route.post('/files', FilesController.postUpload);
