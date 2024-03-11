@@ -2,22 +2,22 @@ const express = require('express');
 
 const router = express.Router();
 const AppController = require('../controllers/AppController');
-/* const UsersController = require('../controllers/UsersController');
-const AuthController = require('../controllers/AuthController');
+const UsersController = require('../controllers/UsersController');
+/*const AuthController = require('../controllers/AuthController');
 const FilesController = require('../controllers/FilesController'); */
 
 router.get('/status', AppController.getStatus);
 router.get('/stats', AppController.getStats);
 router.post('/users', UsersController.postNew);
-/*route.get('/connect', AuthController.getConnect);
-route.get('/disconnect', AuthController.getDisconnect);
-route.get('/users/me', UsersController.getMe);
-route.post('/files', FilesController.postUpload);
-route.get('/files', FilesController.getIndex);
-route.get('/files/:id', FilesController.getShow);
-route.put('files/:id/publish', FilesController.putPublish);
-route.put('files/:id/unpublish', FilesController.putUnpublish);
-route.get('/files/:id/data', FilesController.getFile); */
+/*router.get('/connect', AuthController.getConnect);
+router.get('/disconnect', AuthController.getDisconnect);
+router.get('/users/me', UsersController.getMe);
+router.post('/files', FilesController.postUpload);
+router.get('/files', FilesController.getIndex);
+router.get('/files/:id', FilesController.getShow);
+router.put('files/:id/publish', FilesController.putPublish);
+router.put('files/:id/unpublish', FilesController.putUnpublish);
+router.get('/files/:id/data', FilesController.getFile); */
 
 module.exports = router;
 
