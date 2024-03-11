@@ -1,4 +1,4 @@
-const redisClient = require('../utils/redis');
+/*const redisClient = require('../utils/redis');
 const dbClient = require('../utils/db');
 
 class AppController {
@@ -29,11 +29,11 @@ class AppController {
       res.status(500).send('Internal Server Error');
     }
   }
-}
+}*/
 
 module.exports = AppController;
 
-/*const redisClient = require('../utils/redis');
+const redisClient = require('../utils/redis');
 const dbClient = require('../utils/db');
 
 class AppController {
@@ -60,4 +60,4 @@ class AppController {
   }
 }
 
-module.exports = AppController;*/
+module.exports = AppController;
