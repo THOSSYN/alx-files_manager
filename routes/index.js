@@ -3,6 +3,7 @@ const AppController = require('../controllers/AppController');
 const UsersController = require('../controllers/UsersController');
 const AuthController = require('../controllers/AuthController');
 const FilesController = require('../controllers/FilesController');
+
 const route = express.Router();
 
 route.get('/status', AppController.getStatus);
