@@ -185,7 +185,7 @@ class FilesController {
     }
   }*/
 
-  /*static getShow = async (req, res) => {
+  static async getShow(req, res) {
     const sessToken = req.headers['x-token'];
     const { parentId } = req.query;
     if (!sessToken) res.status(401).json({ error: "Unauthorized"});
@@ -204,9 +204,9 @@ class FilesController {
       console.error('Error retrieving file:', error);
       res.status(500).json({ error: 'Internal Server Error' });
     }
-  }
+  };
 
-  static getIndex = async (req, res) => {
+  static async getIndex(req, res) {
     const sessToken = req.headers['x-token'];
     const { parentId = '0', page = '0' } = req.query;
 
@@ -226,7 +226,7 @@ class FilesController {
 
       const client = dbClient.client;
       await client.connect();
-      const db = client.db(dbClient.files_manager);
+      const db = client.db(dbClient.DB_DATABASE);
 
       const pipeline = [
         { $match: { parentId: parentId } },
@@ -234,8 +234,9 @@ class FilesController {
         { $limit: 20 }
       ];
       console.log("Pipeline:", pipeline);
-      // const files = await db.collection('files').aggregate(pipeline).toArray();
-      const files = await db.collection('files').findOne({"name" : "myText.txt"});
+      const files = await db.collection('files').aggregate(pipeline).toArray();
+      // const files = await db.collection('files').findOne({"name" : "myText.txt"});
+      // const files = await db.collection('files').find();
       console.log("Files:", files);
       res.status(200).json(files);
     } catch (error) {
@@ -244,7 +245,7 @@ class FilesController {
     }
   };
 
-  static putPublish = async (req, res) => {
+  static async putPublish(req, res) {
     const sessToken = req.headers['x-token'];
     console.log(sessToken);
     if (!sessToken) {
@@ -278,7 +279,7 @@ class FilesController {
     }
   };
 
-  static putUnpublish = async (req, res) => {
+  static async putUnpublish(req, res) {
     const sessToken = req.headers['x-token'];
     console.log(sessToken);
     if (!sessToken) {
@@ -310,9 +311,9 @@ class FilesController {
       console.error('Error updating file:', error);
       res.status(500).json({ error: 'Internal Server Error' });
     }
-  };*/
+  };
 
-  /*static getFile = async (req, res) => {
+  static async getFile(req, res) {
     const fileId = req.params.id;
     if (!fileId) {
       res.status(404).json({ error: "Not found" });
@@ -346,7 +347,7 @@ class FilesController {
     } catch(e) {
       res.status(500).json({});
     }
-  }*/ 
+  } 
 
   /*static async getFile(req, res) {
     const fileId = req.params.id;
