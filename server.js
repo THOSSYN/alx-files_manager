@@ -15,7 +15,7 @@ app.listen(port, () => {
 
 module.exports = app;
 
-/*const bodyParser = require('body-parser');
+/* const bodyParser = require('body-parser');
 const express = require('express');
 const routes = require('./routes');
 
@@ -33,4 +33,4 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-module.exports = app;*/
+module.exports = app; */

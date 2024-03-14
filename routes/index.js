@@ -10,7 +10,7 @@ router.post('/users', UsersController.postNew);
 
 module.exports = router;
 
-/*const express = require('express');
+/* const express = require('express');
 
 const router = express.Router();
 const AppController = require('../controllers/AppController');
@@ -31,7 +31,7 @@ router.put('files/:id/publish', FilesController.putPublish);
 router.put('files/:id/unpublish', FilesController.putUnpublish);
 router.get('/files/:id/data', FilesController.getFile);
 
-module.exports = router;*/
+module.exports = router; */
 
 /* const express = require('express');
 const router = express.Router();
