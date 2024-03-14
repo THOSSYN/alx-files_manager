@@ -3,6 +3,18 @@ const express = require('express');
 const router = express.Router();
 const AppController = require('../controllers/AppController');
 const UsersController = require('../controllers/UsersController');
+
+router.get('/status', AppController.getStatus);
+router.get('/stats', AppController.getStats);
+router.post('/users', UsersController.postNew);
+
+module.exports = router;
+
+/*const express = require('express');
+
+const router = express.Router();
+const AppController = require('../controllers/AppController');
+const UsersController = require('../controllers/UsersController');
 const AuthController = require('../controllers/AuthController');
 const FilesController = require('../controllers/FilesController');
 
@@ -19,7 +31,7 @@ router.put('files/:id/publish', FilesController.putPublish);
 router.put('files/:id/unpublish', FilesController.putUnpublish);
 router.get('/files/:id/data', FilesController.getFile);
 
-module.exports = router;
+module.exports = router;*/
 
 /* const express = require('express');
 const router = express.Router();
