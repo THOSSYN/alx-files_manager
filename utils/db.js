@@ -1,57 +1,46 @@
-/* const { MongoClient } = require('mongodb');
+import { MongoClient } from 'mongodb';
+
+const DB_HOST = process.env.DB_HOST || 'localhost';
+const DB_PORT = process.env.DB_PORT || 27017;
+const DB_DATABASE = process.env.DB_DATABASE || 'files_manager';
+const url = `mongodb://${DB_HOST}:${DB_PORT}`;
 
 class DBClient {
   constructor() {
-    const host = process.env.DB_HOST || 'localhost';
-    const port = process.env.DB_PORT || 27017;
-    const database = process.env.DB_DATABASE || 'files_manager';
-
-    this.client = new MongoClient(`mongodb://${host}:${port}`, { useNewUrlParser: true, useUnifiedTopology: true });
-    this.dbName = database;
+    this.client = new MongoClient(url, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    this.client.connect()
+      .then(() => {
+        this.db = this.client.db(DB_DATABASE);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
-  async isAlive() {
-    try {
-      await this.client.connect();
-      return true;
-    } catch (error) {
-      console.error('Error connecting to MongoDB:', error);
-      return false;
-    }
+  isAlive() {
+    return this.client.isConnected();
   }
 
   async nbUsers() {
-    try {
-      await this.client.connect();
-      const db = this.client.db(this.dbName);
-      const usersCollection = db.collection('users');
-      const count = await usersCollection.countDocuments();
-      return count;
-    } catch (error) {
-      console.error('Error retrieving number of users:', error);
-      return -1;
-    }
+    const userCollections = this.db.collection('users');
+    const numDocs = await userCollections.countDocuments();
+    return numDocs;
   }
 
   async nbFiles() {
-    try {
-      await this.client.connect();
-      const db = this.client.db(this.dbName);
-      const filesCollection = db.collection('files');
-      const count = await filesCollection.countDocuments();
-      return count;
-    } catch (error) {
-      console.error('Error retrieving number of files:', error);
-      return -1;
-    }
+    const fileCollections = this.db.collection('files');
+    const numFiles = await fileCollections.countDocuments();
+    return numFiles;
   }
 }
 
 const dbClient = new DBClient();
+module.exports = dbClient;
 
-module.exports = dbClient; */
-
-const { MongoClient } = require('mongodb');
+/*const { MongoClient } = require('mongodb');
 
 class DBClient {
   constructor() {
@@ -98,4 +87,4 @@ class DBClient {
 
 const dbClient = new DBClient();
 
-module.exports = dbClient;
+module.exports = dbClient;*/
