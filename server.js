@@ -5,7 +5,7 @@ const port = process.env.PORT || 5000;
 
 app.use(express.json());
 
-const routes = require('./routes/index');
+const routes = require('./routes');
 
 app.use('/', routes);
 
